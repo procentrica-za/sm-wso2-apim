@@ -562,8 +562,8 @@
             <Type>Binary</Type>
             <ReceiverUrlGroup>tcp://${carbon.local.ip}:${receiver.url.port}</ReceiverUrlGroup>
             <AuthUrlGroup>ssl://${carbon.local.ip}:${auth.url.port}</AuthUrlGroup>
-            <Username>admin@im.com@carbon.super</Username>
-            <Password>P@ssw0rd</Password>
+            <Username>admin</Username>
+            <Password>admin</Password>
         </TrafficManager>
         <DataPublisher>
             <Enabled>true</Enabled>
@@ -580,7 +580,7 @@
         <PolicyDeployer>
             <Enabled>true</Enabled>
             <ServiceURL>https://localhost:${mgt.transport.https.port}${carbon.context}services/</ServiceURL>
-            <Username>admin@im.com@carbon.super</Username>
+            <Username>admin@carbon.super</Username>
             <Password>admin</Password>
         </PolicyDeployer>
         <BlockCondition>
@@ -596,7 +596,7 @@
                 <transport.jms.ConnectionFactoryJNDIName>TopicConnectionFactory</transport.jms.ConnectionFactoryJNDIName>
                 <transport.jms.DestinationType>topic</transport.jms.DestinationType>
                 <java.naming.factory.initial>org.wso2.andes.jndi.PropertiesFileInitialContextFactory</java.naming.factory.initial>
-                <connectionfactory.TopicConnectionFactory>amqp://admin!im.com!carbon.super:P!ssw0rd@clientid/carbon?brokerlist='tcp://${carbon.local.ip}:${jms.port}'</connectionfactory.TopicConnectionFactory>
+                <connectionfactory.TopicConnectionFactory>amqp://admin!carbon.super:admin@clientid/carbon?brokerlist='tcp://${carbon.local.ip}:${jms.port}'</connectionfactory.TopicConnectionFactory>
             </JMSConnectionParameters>
         </JMSConnectionDetails>
 

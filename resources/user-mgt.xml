@@ -20,7 +20,7 @@
             <AddAdmin>true</AddAdmin>
             <AdminRole>admin</AdminRole>
             <AdminUser>
-                <UserName>admin@im.com</UserName>
+                <UserName>admin</UserName>
                 <Password>admin</Password>
             </AdminUser>
             <EveryOneRoleName>everyone</EveryOneRoleName>
