@@ -1,0 +1,269 @@
+{
+   "swagger": "2.0",
+   "paths": {
+      "/partners/{id}": {
+         "get": {
+            "parameters": [
+               {
+                  "name": "id",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Partner ID"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/PartnerResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found"
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Get Partner",
+            "produces": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         },
+         "post": {
+            "parameters": [
+               {
+                  "name": "id",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Partner ID"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/PartnerRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/PartnerResponse"
+                  }
+               },
+               "201": {
+                  "description": "Successfully Created",
+                  "schema": {
+                     "$ref": "#/definitions/PartnerResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found"
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Create Partner",
+            "produces": [
+               "application/json"
+            ],
+            "consumes": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         },
+         "put": {
+            "parameters": [
+               {
+                  "name": "id",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Partner ID"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/PartnerRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/PartnerResponse"
+                  }
+               },
+               "201": {
+                  "description": "Successfully Created",
+                  "schema": {
+                     "$ref": "#/definitions/PartnerResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found"
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Update Partner",
+            "produces": [
+               "application/json"
+            ],
+            "consumes": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         },
+         "delete": {
+            "parameters": [
+               {
+                  "name": "id",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Partner ID"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response"
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found"
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Delete Partner",
+            "produces": [
+               ""
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         }
+      }
+   },
+   "info": {
+      "title": "Partners",
+      "version": "1.0.0",
+      "description": "Partner Table"
+   },
+   "definitions": {
+      "PartnerRequest": {
+         "type": "object",
+         "properties": {
+            "name": {
+               "type": "string",
+               "description": "Partner Name"
+            },
+            "description": {
+               "type": "string",
+               "description": "Partner Description"
+            },
+            "active": {
+               "type": "boolean",
+               "description": "Is Partner Active"
+            }
+         }
+      },
+      "PartnerResponse": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "integer",
+               "description": "Partner ID",
+               "format": "int32"
+            },
+            "name": {
+               "type": "string",
+               "description": "Partner Name"
+            },
+            "description": {
+               "type": "string",
+               "description": "Partner Description"
+            },
+            "active": {
+               "type": "boolean",
+               "description": "Is Partner Active"
+            },
+            "created_at": {
+               "type": "string",
+               "description": "Record Create Time",
+               "format": "date-time"
+            },
+            "updated_at": {
+               "type": "string",
+               "description": "Record Update Time",
+               "format": "date-time"
+            }
+         }
+      },
+      "Error": {
+         "type": "object",
+         "properties": {
+            "code": {
+               "type": "integer",
+               "description": "Error Code"
+            },
+            "message": {
+               "type": "string",
+               "description": "Error Message"
+            }
+         }
+      }
+   }
+}

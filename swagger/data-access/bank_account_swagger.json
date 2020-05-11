@@ -1,0 +1,485 @@
+{
+   "swagger": "2.0",
+   "paths": {
+      "/bankaccounts/types": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/Type"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Bank Account Types"
+         }
+      },
+      "/bankaccounts/{partyID}": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/BankAccountResponse"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               }
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Party BankAccounts"
+         }
+      },
+      "/bankaccounts/{partyID}/{typeID}": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/BankAccountResponse"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Party BankAccounts of Type"
+         },
+         "post": {
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/BankAccountRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/BankAccountResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "Save new BankAccount"
+         }
+      },
+      "/bankaccounts/{partyID}/{typeID}/{bankAccountIndex}/": {
+         "get": {
+            "parameters": [
+               {
+                  "name": "bankAccountIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/BankAccountResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "View an BankAccount",
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         },
+         "put": {
+            "parameters": [
+               {
+                  "name": "bankAccountIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/BankAccountRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "Record Updated"
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "Update BankAccount"
+         },
+         "delete": {
+            "parameters": [
+               {
+                  "name": "bankAccountIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Record Deleted"
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Delete an BankAccount",
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         }
+      }
+   },
+   "info": {
+      "title": "BankAccounts",
+      "version": "1.0.0",
+      "description": "BankAccount database access API"
+   },
+   "definitions": {
+      "Type": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "ID of Type",
+               "format": "string"
+            },
+            "name": {
+               "type": "string",
+               "description": "Type Name",
+               "format": "string"
+            },
+            "description": {
+               "type": "string",
+               "description": "Description of Type",
+               "format": "string"
+            }
+         }
+      },
+      "BankAccountResponse": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "Bank Account Identification",
+               "format": "string"
+            },
+            "name": {
+               "type": "string",
+               "description": "Account Name",
+               "format": "string"
+            },
+            "account_number": {
+               "type": "string",
+               "description": "Account Number",
+               "format": "string"
+            },
+            "branch_code": {
+               "type": "string",
+               "description": "Account Branch Code",
+               "format": "string"
+            },
+            "created_at": {
+               "type": "string",
+               "description": "Created At",
+               "format": "date-time"
+            },
+            "updated_at": {
+               "type": "string",
+               "description": "Updated At",
+               "format": "date-time"
+            },
+            "institution": {
+               "type": "string",
+               "description": " Bank Institution",
+               "format": "string"
+            },
+            "party_id": {
+               "type": "string",
+               "description": "Party Id mapped to identification value",
+               "format": "string"
+            },
+            "account_type_id": {
+               "type": "string",
+               "description": "Associated Account Type ID",
+               "format": "string"
+            }
+         }
+      },
+      "BankAccountRequest": {
+         "type": "object",
+         "properties": {
+            "name": {
+               "type": "string",
+               "description": "Account Name",
+               "format": "string"
+            },
+            "account_number": {
+               "type": "string",
+               "description": "Account Number",
+               "format": "string"
+            },
+            "branch_code": {
+               "type": "string",
+               "description": "Account Branch Code",
+               "format": "string"
+            },
+            "institution": {
+               "type": "string",
+               "description": " Bank Institution",
+               "format": "string"
+            }
+         }
+      },
+      "Error": {
+         "type": "object",
+         "properties": {
+            "code": {
+               "type": "integer",
+               "description": "Error Code"
+            },
+            "message": {
+               "type": "string",
+               "description": "Error Message"
+            }
+         }
+      }
+   }
+}

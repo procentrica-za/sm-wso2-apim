@@ -1,0 +1,274 @@
+{
+    "swagger": "2.0",
+    "paths": {
+        "/defaultsharingpreferences/{partnerID}/{partyID}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "partnerID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Partner ID"
+                    },
+                    {
+                        "name": "partyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Party ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultSharingPreferenceResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Get Default Sharing Preferences",
+                "produces": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "name": "partnerID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Partner ID"
+                    },
+                    {
+                        "name": "partyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Party ID"
+                    },
+                    {
+                        "name": "Payload",
+                        "description": "Request Body",
+                        "required": false,
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "payload": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultSharingPreferenceResponse"
+                        }
+                    },
+                    "201": {
+                        "description": "Successfully Created",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultSharingPreferenceResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Create Default Sharing Preferences",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "name": "partnerID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Partner ID"
+                    },
+                    {
+                        "name": "partyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Party ID"
+                    },
+                    {
+                        "name": "Payload",
+                        "description": "Request Body",
+                        "required": false,
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "payload": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultSharingPreferenceResponse"
+                        }
+                    },
+                    "201": {
+                        "description": "Successfully Created",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultSharingPreferenceResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Update Default Sharing Preferences",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            },
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "partnerID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Partner ID"
+                    },
+                    {
+                        "name": "partyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Party ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response"
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Delete Default Sharing Preferences",
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            }
+        }
+    },
+    "info": {
+        "title": "DefaultSharingPreferences",
+        "version": "1.0.0",
+        "description": "Default Sharing Preferences"
+    },
+    "definitions": {
+        "DefaultSharingPreferenceResponse": {
+            "type": "object",
+            "properties": {
+                "partner_id": {
+                    "type": "integer",
+                    "description": "Related Partner ID",
+                    "format": "int32"
+                },
+                "party_id": {
+                    "type": "integer",
+                    "description": "Related Party ID",
+                    "format": "int32"
+                },
+                "field_preferences": {
+                    "type": "string",
+                    "description": "Sharing Preferences"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "description": "Error Code"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    }
+}

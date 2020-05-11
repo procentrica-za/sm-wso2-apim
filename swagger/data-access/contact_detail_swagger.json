@@ -1,0 +1,465 @@
+{
+   "swagger": "2.0",
+   "paths": {
+      "/contactdetails/types": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/Type"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Contact Detail Types"
+         }
+      },
+      "/contactdetails/{partyID}": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/ContactDetailResponse"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               }
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Party ContactDetails"
+         }
+      },
+      "/contactdetails/{partyID}/{typeID}": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/ContactDetailResponse"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Party ContactDetails of Type"
+         },
+         "post": {
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/ContactDetailRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/ContactDetailResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "Save new ContactDetail"
+         }
+      },
+      "/contactdetails/{partyID}/{typeID}/{contactDetailIndex}/": {
+         "get": {
+            "parameters": [
+               {
+                  "name": "contactDetailIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/ContactDetailResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "View an ContactDetail",
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         },
+         "put": {
+            "parameters": [
+               {
+                  "name": "contactDetailIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/ContactDetailRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "Record Updated"
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "Update ContactDetail"
+         },
+         "delete": {
+            "parameters": [
+               {
+                  "name": "contactDetailIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Record Deleted"
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Delete an ContactDetail",
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         }
+      }
+   },
+   "info": {
+      "title": "ContactDetails",
+      "version": "1.0.0",
+      "description": "ContactDetail database access API"
+   },
+   "definitions": {
+      "Type": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "ID of Type",
+               "format": "string"
+            },
+            "name": {
+               "type": "string",
+               "description": "Type Name",
+               "format": "string"
+            },
+            "description": {
+               "type": "string",
+               "description": "Description of Type",
+               "format": "string"
+            }
+         }
+      },
+      "ContactDetailRequest": {
+         "type": "object",
+         "properties": {
+            "name": {
+               "type": "string",
+               "description": "Contact Detail Name",
+               "format": "string"
+            },
+            "contact": {
+               "type": "string",
+               "description": "Contact Detail Value",
+               "format": "string"
+            }
+         }
+      },
+      "ContactDetailResponse": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "Contact Detail Identification",
+               "format": "string"
+            },
+            "name": {
+               "type": "string",
+               "description": "Contact Detail Name",
+               "format": "string"
+            },
+            "contact": {
+               "type": "string",
+               "description": "Contact Detail Value",
+               "format": "string"
+            },
+            "created_at": {
+               "type": "string",
+               "description": "Record Create Time",
+               "format": "date-time"
+            },
+            "updated_at": {
+               "type": "string",
+               "description": "Record Update Time",
+               "format": "date-time"
+            },
+            "contact_type_id": {
+               "type": "string",
+               "description": "Reference To The Type Of Contact",
+               "format": "string"
+            },
+            "party_id": {
+               "type": "string",
+               "description": "Party Linked To Address",
+               "format": "string"
+            }
+         }
+      },
+      "Error": {
+         "type": "object",
+         "properties": {
+            "code": {
+               "type": "integer",
+               "description": "Error Code"
+            },
+            "message": {
+               "type": "string",
+               "description": "Error Message"
+            }
+         }
+      }
+   }
+}

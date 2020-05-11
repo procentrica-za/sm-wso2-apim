@@ -1,0 +1,1 @@
+{"swagger":"2.0","paths":{"/user":{"get":{"responses":{"200":{"description":""}},"parameters":[{"name":"id","in":"query","required":false,"type":"integer"},{"name":"start","in":"query","required":false,"type":"integer"}],"x-auth-type":"Application & Application User","x-throttling-tier":"Unlimited"}}},"info":{"title":"filewriter","version":"v1"}}

@@ -1,0 +1,361 @@
+{
+    "swagger": "2.0",
+    "paths": {
+        "/filesummaries/{imFileID}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "imFileID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "File ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "schema": {
+                            "$ref": "#/definitions/FileSummaryResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Get File Summaries From Partner File Summaries by File ID",
+                "produces": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "name": "imFileID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "File ID"
+                    },
+                    {
+                        "name": "Payload",
+                        "description": "Request Body",
+                        "required": true,
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/FileSummaryRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "schema": {
+                            "$ref": "#/definitions/FileSummaryResponse"
+                        }
+                    },
+                    "201": {
+                        "description": "Successfully Created",
+                        "schema": {
+                            "$ref": "#/definitions/FileSummaryResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Insert File Summaries Into Partner File Summaries by File ID",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "name": "imFileID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "File ID"
+                    },
+                    {
+                        "name": "Payload",
+                        "description": "Request Body",
+                        "required": true,
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/FileSummaryRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "schema": {
+                            "$ref": "#/definitions/FileSummaryResponse"
+                        }
+                    },
+                    "201": {
+                        "description": "Successfully Created",
+                        "schema": {
+                            "$ref": "#/definitions/FileSummaryResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Update File Summaries Partner File Summaries by File ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            },
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "imFileID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "File ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response"
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Delete File Summaries From Partner File Summaries by File ID",
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            }
+        }
+    },
+    "info": {
+        "title": "FileSummaries",
+        "version": "1.0.0",
+        "description": "Partner File Summaries Table"
+    },
+    "definitions": {
+        "FileSummaryRequest": {
+            "type": "object",
+            "properties": {
+                "import_date": {
+                    "type": "string",
+                    "description": "Import Time",
+                    "format": "date-time"
+                },
+                "return_date": {
+                    "type": "string",
+                    "description": "Return Time",
+                    "format": "date-time"
+                },
+                "iterations": {
+                    "type": "integer",
+                    "description": "Total Iterations",
+                    "format": "int32"
+                },
+                "iterations_complete": {
+                    "type": "integer",
+                    "description": "Iterations Completed",
+                    "format": "int32"
+                },
+                "data_request_sent_email": {
+                    "type": "integer",
+                    "description": "Email Data Requests Sent",
+                    "format": "int32"
+                },
+                "data_request_sent_push": {
+                    "type": "integer",
+                    "description": "Push Data Requests Sent",
+                    "format": "int32"
+                },
+                "data_request_sent_sms": {
+                    "type": "integer",
+                    "description": "SMS Data Requests Sent",
+                    "format": "int32"
+                },
+                "data_request_response_received": {
+                    "type": "integer",
+                    "description": "Data Request Responses Received",
+                    "format": "int32"
+                },
+                "data_records_updated": {
+                    "type": "integer",
+                    "description": "Data Records Updated",
+                    "format": "int32"
+                },
+                "total_batches": {
+                    "type": "integer",
+                    "description": "Total Batches",
+                    "format": "int32"
+                },
+                "processed_batches": {
+                    "type": "integer",
+                    "description": "Batches Processed",
+                    "format": "int32"
+                },
+                "partner_id": {
+                    "type": "integer",
+                    "description": "Related Partner ID",
+                    "format": "int32"
+                }
+            }
+        },
+        "FileSummaryResponse": {
+            "type": "object",
+            "properties": {
+                "im_file_id": {
+                    "type": "string",
+                    "description": "File ID"
+                },
+                "import_date": {
+                    "type": "string",
+                    "description": "Import Time",
+                    "format": "date-time"
+                },
+                "return_date": {
+                    "type": "string",
+                    "description": "Return Time",
+                    "format": "date-time"
+                },
+                "iterations": {
+                    "type": "integer",
+                    "description": "Total Iterations",
+                    "format": "int32"
+                },
+                "iterations_complete": {
+                    "type": "integer",
+                    "description": "Iterations Completed",
+                    "format": "int32"
+                },
+                "data_request_sent_email": {
+                    "type": "integer",
+                    "description": "Email Data Requests Sent",
+                    "format": "int32"
+                },
+                "data_request_sent_push": {
+                    "type": "integer",
+                    "description": "Push Data Requests Sent",
+                    "format": "int32"
+                },
+                "data_request_sent_sms": {
+                    "type": "integer",
+                    "description": "SMS Data Requests Sent",
+                    "format": "int32"
+                },
+                "data_request_response_received": {
+                    "type": "integer",
+                    "description": "Data Request Responses Received",
+                    "format": "int32"
+                },
+                "data_records_updated": {
+                    "type": "integer",
+                    "description": "Data Records Updated",
+                    "format": "int32"
+                },
+                "total_batches": {
+                    "type": "integer",
+                    "description": "Total Batches",
+                    "format": "int32"
+                },
+                "processed_batches": {
+                    "type": "integer",
+                    "description": "Batches Processed",
+                    "format": "int32"
+                },
+                "created_at": {
+                    "type": "string",
+                    "description": "Record Create Time",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "description": "Record Update Time",
+                    "format": "date-time"
+                },
+                "partner_id": {
+                    "type": "integer",
+                    "description": "Related Partner ID",
+                    "format": "int32"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "description": "Error Code"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    }
+}
