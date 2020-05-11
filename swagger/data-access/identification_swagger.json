@@ -1,0 +1,465 @@
+{
+   "swagger": "2.0",
+   "paths": {
+      "/identifications/types": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/Type"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Identification Types"
+         }
+      },
+      "/identifications/{partyID}": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/IdentificationResponse"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               }
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Party Identifications"
+         }
+      },
+      "/identifications/{partyID}/{typeID}": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/IdentificationResponse"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Party Identifications of Type"
+         },
+         "post": {
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/IdentificationRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/IdentificationResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "Save new Identification"
+         }
+      },
+      "/identifications/{partyID}/{typeID}/{identificationIndex}/": {
+         "get": {
+            "parameters": [
+               {
+                  "name": "identificationIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/IdentificationResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "View an Identification",
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         },
+         "put": {
+            "parameters": [
+               {
+                  "name": "identificationIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/IdentificationRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "Record Updated"
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "Update Identification"
+         },
+         "delete": {
+            "parameters": [
+               {
+                  "name": "identificationIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Record Deleted"
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Delete an Identification",
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         }
+      }
+   },
+   "info": {
+      "title": "Identifications",
+      "version": "1.0.0",
+      "description": "Identification database access API"
+   },
+   "definitions": {
+      "Type": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "ID of Type",
+               "format": "string"
+            },
+            "name": {
+               "type": "string",
+               "description": "Type Name",
+               "format": "string"
+            },
+            "description": {
+               "type": "string",
+               "description": "Description of Type",
+               "format": "string"
+            }
+         }
+      },
+      "IdentificationResponse": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "Contact Detail Identification",
+               "format": "string"
+            },
+            "name": {
+               "type": "string",
+               "description": "Identity Name",
+               "format": "string"
+            },
+            "identity": {
+               "type": "string",
+               "description": "Identity Value",
+               "format": "string"
+            },
+            "created_at": {
+               "type": "string",
+               "description": "Record Create Time",
+               "format": "date-time"
+            },
+            "updated_at": {
+               "type": "string",
+               "description": "Record Update Time",
+               "format": "date-time"
+            },
+            "identification_type_id": {
+               "type": "string",
+               "description": "Sequence Id",
+               "format": "string"
+            },
+            "party_id": {
+               "type": "string",
+               "description": "Party Id mapped to identification value",
+               "format": "string"
+            }
+         }
+      },
+      "IdentificationRequest": {
+         "type": "object",
+         "properties": {
+            "name": {
+               "type": "string",
+               "description": "Identity Name",
+               "format": "string"
+            },
+            "identity": {
+               "type": "string",
+               "description": "Identity Value",
+               "format": "string"
+            }
+         }
+      },
+      "Error": {
+         "type": "object",
+         "properties": {
+            "code": {
+               "type": "integer",
+               "description": "Error Code"
+            },
+            "message": {
+               "type": "string",
+               "description": "Error Message"
+            }
+         }
+      }
+   }
+}

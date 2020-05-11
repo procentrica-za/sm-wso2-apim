@@ -1,0 +1,610 @@
+{
+   "swagger": "2.0",
+   "paths": {
+      "/parties/communicationpreferences": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/Type"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Communication Preferences"
+         }
+      },
+      "/parties/maritalstatuses": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/Type"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Marital Statuses"
+         }
+      },
+      "/parties/genders": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/Type"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Gender Types"
+         }
+      },
+      "/parties/ethnicities": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/Type"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Ethnicity Types"
+         }
+      },
+      "/parties": {
+         "post": {
+            "parameters": [
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/PartyRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Status Successful",
+                  "schema": {
+                     "$ref": "#/definitions/PartyResponse"
+                  }
+               },
+               "201": {
+                  "description": "Status Created",
+                  "schema": {
+                     "$ref": "#/definitions/PartyResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "Save new Party"
+         },
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/PartyResponse"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Parties"
+         }
+      },
+      "/parties/{partyID}": {
+         "put": {
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": false,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/PartyRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Status Successful",
+                  "schema": {
+                     "$ref": "#/definitions/PartyResponse"
+                  }
+               },
+               "201": {
+                  "description": "Status Created",
+                  "schema": {
+                     "$ref": "#/definitions/PartyResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "Update Party"
+         },
+         "delete": {
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Record Deleted"
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Delete a Party",
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         },
+         "get": {
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/PartyResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "View a Party",
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         }
+      }
+   },
+   "info": {
+      "title": "Parties",
+      "version": "1.0.0",
+      "description": "Party database access API"
+   },
+   "definitions": {
+      "Type": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "ID of Type",
+               "format": "string"
+            },
+            "name": {
+               "type": "string",
+               "description": "Type Name",
+               "format": "string"
+            },
+            "description": {
+               "type": "string",
+               "description": "Description of Type",
+               "format": "string"
+            }
+         }
+      },
+      "PartyRequest": {
+         "type": "object",
+         "properties": {
+            "name": {
+               "type": "string",
+               "description": "Party Name",
+               "format": "string"
+            },
+            "middle_name": {
+               "type": "string",
+               "description": "Party Middle Name",
+               "format": "string"
+            },
+            "surname": {
+               "type": "string",
+               "description": "Party Surname",
+               "format": "string"
+            },
+            "date_of_birth": {
+               "type": "string",
+               "description": "Party Date Of Birth",
+               "format": "date"
+            },
+            "nationality": {
+               "type": "string",
+               "description": "Party Nationality",
+               "format": "string"
+            },
+            "occupation": {
+               "type": "string",
+               "description": "Party Occupation",
+               "format": "string"
+            },
+            "device_token": {
+               "type": "string",
+               "description": "Device Token",
+               "format": "string"
+            },
+            "gender_type_id": {
+               "type": "string",
+               "description": "Gender Type Id",
+               "format": "string"
+            },
+            "ethnicity_type_id": {
+               "type": "string",
+               "description": "Ethnicity Type Id",
+               "format": "string"
+            },
+            "marital_status_id": {
+               "type": "string",
+               "description": "Marital Status Id",
+               "format": "string"
+            },
+            "communication_preference_id": {
+               "type": "string",
+               "description": "Communication Preference Id",
+               "format": "string"
+            },
+            "communication_contact_detail_id": {
+               "type": "string",
+               "description": "Communication Contact Detail Id",
+               "format": "string"
+            },
+            "rsaid": {
+               "type": "string",
+               "description": "Party National ID",
+               "format": "string"
+            },
+            "dynamic_fields": {
+               "type": "string",
+               "description": "Party Dynamic Fields",
+               "format": "string"
+            }
+         }
+      },
+      "PartyResponse": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "Party Entry Id",
+               "format": "string"
+            },
+            "name": {
+               "type": "string",
+               "description": "Party Name",
+               "format": "string"
+            },
+            "middle_name": {
+               "type": "string",
+               "description": "Party Middle Name",
+               "format": "string"
+            },
+            "surname": {
+               "type": "string",
+               "description": "Party Surname",
+               "format": "string"
+            },
+            "date_of_birth": {
+               "type": "string",
+               "description": "Party Date Of Birth",
+               "format": "date"
+            },
+            "nationality": {
+               "type": "string",
+               "description": "Party Nationality",
+               "format": "string"
+            },
+            "occupation": {
+               "type": "string",
+               "description": "Party Occupation",
+               "format": "string"
+            },
+            "created_at": {
+               "type": "string",
+               "description": "Created at",
+               "format": "date-time"
+            },
+            "updated_at": {
+               "type": "string",
+               "description": "Updated at",
+               "format": "date-time"
+            },
+            "device_token": {
+               "type": "string",
+               "description": "Device Token",
+               "format": "string"
+            },
+            "gender_type_id": {
+               "type": "string",
+               "description": "Gender Type Id",
+               "format": "string"
+            },
+            "ethnicity_type_id": {
+               "type": "string",
+               "description": "Ethnicity Type Id",
+               "format": "string"
+            },
+            "marital_status_id": {
+               "type": "string",
+               "description": "Marital Status Id",
+               "format": "string"
+            },
+            "communication_preference_id": {
+               "type": "string",
+               "description": "Communication Preference Id",
+               "format": "string"
+            },
+            "communication_contact_detail_id": {
+               "type": "string",
+               "description": "Communication Contact Detail Id",
+               "format": "string"
+            },
+            "communication_contact_detail": {
+               "$ref": "#/definitions/ContactDetailResponse",
+               "description": "Communication Contact Detail"
+            },
+            "rsaid": {
+               "type": "string",
+               "description": "Party National ID",
+               "format": "string"
+            },
+            "dynamic_fields": {
+               "type": "string",
+               "description": "Party Dynamic Fields",
+               "format": "string"
+            }
+         }
+      },
+      "ContactDetailResponse": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "Contact Detail Identification",
+               "format": "string"
+            },
+            "name": {
+               "type": "string",
+               "description": "Contact Detail Name",
+               "format": "string"
+            },
+            "contact": {
+               "type": "string",
+               "description": "Contact Detail Value",
+               "format": "string"
+            },
+            "created_at": {
+               "type": "string",
+               "description": "Record Create Time",
+               "format": "date-time"
+            },
+            "updated_at": {
+               "type": "string",
+               "description": "Record Update Time",
+               "format": "date-time"
+            },
+            "contact_type_id": {
+               "type": "string",
+               "description": "Reference To The Type Of Contact",
+               "format": "string"
+            },
+            "party_id": {
+               "type": "string",
+               "description": "Party Linked To Address",
+               "format": "string"
+            }
+         }
+      },
+      "Error": {
+         "type": "object",
+         "properties": {
+            "code": {
+               "type": "integer",
+               "description": "Error Code"
+            },
+            "message": {
+               "type": "string",
+               "description": "Error Message"
+            }
+         }
+      }
+   }
+}

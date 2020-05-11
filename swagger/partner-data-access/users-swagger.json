@@ -1,0 +1,413 @@
+{
+   "swagger": "2.0",
+   "paths": {
+      "/users/{imFileID}/{rsaID}": {
+         "get": {
+            "parameters": [
+               {
+                  "name": "imFileID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "File ID"
+               },
+               {
+                  "name": "rsaID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "RSA ID"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/UserResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found"
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Get User From Partner Users by File ID and RSA ID",
+            "produces": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         },
+         "post": {
+            "parameters": [
+               {
+                  "name": "imFileID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "File ID"
+               },
+               {
+                  "name": "rsaID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "RSA ID"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/UserRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/UserResponse"
+                  }
+               },
+               "201": {
+                  "description": "Successfully Created",
+                  "schema": {
+                     "$ref": "#/definitions/UserResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found"
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Insert User Into Partner Users by File ID and RSA ID",
+            "produces": [
+               "application/json"
+            ],
+            "consumes": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         },
+         "put": {
+            "parameters": [
+               {
+                  "name": "imFileID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string"
+               },
+               {
+                  "name": "rsaID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/UserRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/UserResponse"
+                  }
+               },
+               "201": {
+                  "description": "Successfully Created",
+                  "schema": {
+                     "$ref": "#/definitions/UserResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found"
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Update User Partner Users by File ID and RSA ID",
+            "produces": [
+               "application/json"
+            ],
+            "consumes": [
+               "pplication/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         },
+         "delete": {
+            "parameters": [
+               {
+                  "name": "imFileID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string"
+               },
+               {
+                  "name": "rsaID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response"
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found"
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Delete User From Partner Users by File ID and RSA ID",
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         }
+      },
+      "/users/{imFileID}": {
+         "get": {
+            "parameters": [
+               {
+                  "name": "imFileID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "File ID"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/UserResponseList"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found"
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Get Users From Partner Users by File ID",
+            "produces": [
+               "pplication/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         }
+      }
+   },
+   "info": {
+      "title": "Users",
+      "version": "1.0.0",
+      "description": "Partner User Table"
+   },
+   "definitions": {
+      "UserResponseList": {
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/UserResponse"
+         }
+      },
+      "UserRequest": {
+         "type": "object",
+         "properties": {
+            "name": {
+               "type": "string",
+               "description": "Partner Name"
+            },
+            "surname": {
+               "type": "string",
+               "description": "Partner Surname"
+            },
+            "email": {
+               "type": "string",
+               "description": "Partner Email",
+               "format": "email"
+            },
+            "contact_number": {
+               "type": "string",
+               "description": "Partner Contact Number",
+               "format": "phone"
+            },
+            "address": {
+               "type": "string",
+               "description": "Partner Address"
+            },
+            "updated": {
+               "type": "boolean",
+               "description": "Has User been Updated"
+            },
+            "errors": {
+               "type": "string",
+               "description": "Errors in Pipeline"
+            },
+            "status": {
+               "type": "integer",
+               "description": "User Status",
+               "format": "int32"
+            },
+            "requested_data": {
+               "type": "string",
+               "description": "Requested Data JSON Dynamic Fields"
+            },
+            "dynamic_fields": {
+               "type": "string",
+               "description": "JSON Dynamic Fields"
+            },
+            "party_id": {
+               "type": "string",
+               "description": "Equivalent Party ID",
+               "format": "uuid"
+            }
+         }
+      },
+      "UserResponse": {
+         "type": "object",
+         "properties": {
+            "rsaid": {
+               "type": "string",
+               "description": "User National ID"
+            },
+            "name": {
+               "type": "string",
+               "description": "Partner Name"
+            },
+            "surname": {
+               "type": "string",
+               "description": "Partner Surname"
+            },
+            "email": {
+               "type": "string",
+               "description": "Partner Email",
+               "format": "email"
+            },
+            "contact_number": {
+               "type": "string",
+               "description": "Partner Contact Number",
+               "format": "phone"
+            },
+            "address": {
+               "type": "string",
+               "description": "Partner Address"
+            },
+            "im_file_id": {
+               "type": "string",
+               "description": "File ID"
+            },
+            "updated": {
+               "type": "boolean",
+               "description": "Has User been Updated"
+            },
+            "errors": {
+               "type": "string",
+               "description": "Errors in Pipeline"
+            },
+            "status": {
+               "type": "integer",
+               "description": "User Status",
+               "format": "int32"
+            },
+            "requested_data": {
+               "type": "string",
+               "description": "Requested Data JSON Dynamic Fields"
+            },
+            "dynamic_fields": {
+               "type": "string",
+               "description": "JSON Dynamic Fields"
+            },
+            "created_at": {
+               "type": "string",
+               "description": "Record Create Time",
+               "format": "date-time"
+            },
+            "updated_at": {
+               "type": "string",
+               "description": "Record Update Time",
+               "format": "date-time"
+            },
+            "party_id": {
+               "type": "string",
+               "description": "Equivalent Party ID",
+               "format": "uuid"
+            }
+         }
+      },
+      "Error": {
+         "type": "object",
+         "properties": {
+            "code": {
+               "type": "integer",
+               "description": "Error Code"
+            },
+            "message": {
+               "type": "string",
+               "description": "Error Message"
+            }
+         }
+      }
+   }
+}

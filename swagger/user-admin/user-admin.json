@@ -1,0 +1,178 @@
+{
+    "swagger": "2.0",
+    "paths": {
+        "/register": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "Payload",
+                        "description": "Request Body",
+                        "required": false,
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Register"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Registration"
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Register User",
+                "consumes": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            }
+        },
+        "/login": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "Payload",
+                        "description": "Request Body",
+                        "required": false,
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/LoginRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Login",
+                        "schema": {
+                            "$ref": "#/definitions/LoginResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Login User",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            }
+        }
+    },
+    "info": {
+        "title": "UserAdministration",
+        "version": "1.0.0",
+        "description": "User Administration"
+    },
+    "definitions": {
+        "LoginRequest": {
+            "type": "object",
+            "properties": {
+                "username": {
+                    "type": "string",
+                    "description": "Username"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password",
+                    "format": "password"
+                }
+            }
+        },
+        "LoginResponse": {
+            "type": "object",
+            "properties": {
+                "access_token": {
+                    "type": "string",
+                    "description": "Access Token"
+                },
+                "refresh_token": {
+                    "type": "string",
+                    "description": "Regresh Token"
+                },
+                "scope": {
+                    "type": "string",
+                    "description": "Scope"
+                },
+                "token_type": {
+                    "type": "string",
+                    "description": "Token Type"
+                },
+                "expires_in": {
+                    "type": "integer",
+                    "description": "Expires in Seconds"
+                }
+            }
+        },
+        "Register": {
+            "type": "object",
+            "properties": {
+                "username": {
+                    "type": "string",
+                    "description": "Username"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password",
+                    "format": "password"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name"
+                },
+                "surname": {
+                    "type": "string",
+                    "description": "Surname"
+                },
+                "rsaid": {
+                    "type": "string",
+                    "description": "National ID"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "description": "Error Code"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    }
+}

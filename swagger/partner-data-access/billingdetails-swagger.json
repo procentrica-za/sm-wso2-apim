@@ -1,0 +1,292 @@
+{
+    "swagger": "2.0",
+    "paths": {
+        "/billingdetails/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Partner ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "schema": {
+                            "$ref": "#/definitions/BillingDetailResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Get Billing Details",
+                "produces": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Partner ID"
+                    },
+                    {
+                        "name": "Payload",
+                        "description": "Request Body",
+                        "required": false,
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/BillingDetailRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "schema": {
+                            "$ref": "#/definitions/BillingDetailResponse"
+                        }
+                    },
+                    "201": {
+                        "description": "Successfully Created",
+                        "schema": {
+                            "$ref": "#/definitions/BillingDetailResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Create Billing Details",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Partner ID"
+                    },
+                    {
+                        "name": "Payload",
+                        "description": "Request Body",
+                        "required": false,
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/BillingDetailRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "schema": {
+                            "$ref": "#/definitions/BillingDetailResponse"
+                        }
+                    },
+                    "201": {
+                        "description": "Successfully Created",
+                        "schema": {
+                            "$ref": "#/definitions/BillingDetailResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Update Billing Details",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            },
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Partner ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response"
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "summary": "Delete Billing Details",
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            }
+        }
+    },
+    "info": {
+        "title": "BillingDetails",
+        "version": "1.0.0",
+        "description": "Partner Billing Detail Table"
+    },
+    "definitions": {
+        "BillingDetailRequest": {
+            "type": "object",
+            "properties": {
+                "file_rate": {
+                    "type": "number",
+                    "description": "Rate per File",
+                    "format": "float"
+                },
+                "updated_record_rate": {
+                    "type": "number",
+                    "description": "Rate per Updated Record",
+                    "format": "float"
+                },
+                "notification_email_rate": {
+                    "type": "number",
+                    "description": "Rate per Email Notification",
+                    "format": "float"
+                },
+                "notification_sms_rate": {
+                    "type": "number",
+                    "description": "Rate per SMS Notification",
+                    "format": "float"
+                },
+                "notification_push_rate": {
+                    "type": "number",
+                    "description": "Rate per Push Notification",
+                    "format": "float"
+                }
+            }
+        },
+        "BillingDetailResponse": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string",
+                    "description": "Record Create Time",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "description": "Record Update Time",
+                    "format": "date-time"
+                },
+                "file_rate": {
+                    "type": "number",
+                    "description": "Rate per File",
+                    "format": "float"
+                },
+                "updated_record_rate": {
+                    "type": "number",
+                    "description": "Rate per Updated Record",
+                    "format": "float"
+                },
+                "notification_email_rate": {
+                    "type": "number",
+                    "description": "Rate per Email Notification",
+                    "format": "float"
+                },
+                "notification_sms_rate": {
+                    "type": "number",
+                    "description": "Rate per SMS Notification",
+                    "format": "float"
+                },
+                "notification_push_rate": {
+                    "type": "number",
+                    "description": "Rate per Push Notification",
+                    "format": "float"
+                },
+                "partner_id": {
+                    "type": "integer",
+                    "description": "Related Partner ID",
+                    "format": "int32"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "description": "Error Code"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    }
+}

@@ -27,7 +27,7 @@
             <!-- By default users in this role sees the registry root -->
             <Property name="isCascadeDeleteEnabled">true</Property>
             <Property name="initializeNewClaimManager">true</Property>
-            <Property name="dataSource">jdbc/WSO2CarbonDB</Property>
+            <Property name="dataSource">jdbc/WSO2UM_DB</Property>
         </Configuration>
         <!-- Following is the configuration for internal JDBC user store. This user store manager is based on JDBC.
 	         In case if application needs to manage passwords externally set property
@@ -61,36 +61,6 @@
             <Property name="MaxRoleNameListLength">100</Property>
             <Property name="UserRolesCacheEnabled">true</Property>
             <Property name="UserNameUniqueAcrossTenants">false</Property>
-        </UserStoreManager>
-
-
-        <UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">
-            <Property name="TenantManager">org.wso2.carbon.user.core.tenant.JDBCTenantManager</Property>
-            <Property name="driverName">org.postgresql.Driver</Property>
-            <Property name="url">jdbc:postgresql://postgres:5432/sm</Property>
-            <Property name="userName">postgres</Property>
-            <Property name="password">postgres</Property>
-            <Property name="Disabled">false</Property>
-            <Property name="MaxUserNameListLength">100</Property>
-            <Property name="MaxRoleNameListLength">100</Property>
-            <Property name="UserRolesCacheEnabled">true</Property>
-            <Property name="PasswordDigest">SHA-256</Property>
-            <Property name="ReadGroups">true</Property>
-            <Property name="ReadOnly">false</Property>
-            <Property name="IsEmailUserName">false</Property>
-            <Property name="DomainCalculation">default</Property>
-            <Property name="StoreSaltedPassword">true</Property>
-            <Property name="WriteGroups">false</Property>
-            <Property name="UserNameUniqueAcrossTenants">false</Property>
-            <Property name="PasswordJavaRegEx">^[\S]{5,30}$</Property>
-            <Property name="PasswordJavaScriptRegEx">^[\S]{5,30}$</Property>
-            <Property name="UsernameJavaRegEx">^[\S]{5,30}$</Property>
-            <Property name="UsernameJavaScriptRegEx">^[\S]{5,30}$</Property>
-            <Property name="RolenameJavaRegEx">^[\S]{5,30}$</Property>
-            <Property name="RolenameJavaScriptRegEx">^[\S]{5,30}$</Property>
-            <Property name="SCIMEnabled">false</Property>
-            <Property name="DomainName">wso2.org</Property>
-            <Property name="Description"/>
         </UserStoreManager>
         <!-- If product is using an external LDAP as the user store in READ ONLY mode, use following user manager.
 		     In case if user core cache domain is needed to identify uniquely set property

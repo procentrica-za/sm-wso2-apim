@@ -1,0 +1,306 @@
+{
+    "swagger": "2.0",
+    "paths": {
+        "/documents/types": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Type"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request Data",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "204": {
+                        "description": "No Record Found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited",
+                "summary": "List all Document Types"
+            }
+        },
+        "/documents/{partyID}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "partyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of related Party object"
+                    }
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited",
+                "summary": "List all Party Documents"
+            }
+        },
+        "/documents/{partyID}/{typeID}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "partyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of related Party object"
+                    },
+                    {
+                        "name": "typeID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of Type"
+                    }
+                ],
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited",
+                "summary": "List all Party Documents of Type"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "name": "partyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of related Party object"
+                    },
+                    {
+                        "name": "typeID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of Type"
+                    },
+                    {
+                        "name": "Payload",
+                        "description": "Request Body",
+                        "required": true,
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "Name": {
+                                    "type": "string"
+                                },
+                                "Description": {
+                                    "type": "string"
+                                },
+                                "ExpiryDate": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited",
+                "summary": "Save new Document"
+            }
+        },
+        "/documents/{partyID}/{typeID}/{documentIndex}/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "documentIndex",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Index into objects"
+                    },
+                    {
+                        "name": "partyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of related Party object"
+                    },
+                    {
+                        "name": "typeID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "summary": "View an Document",
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "name": "documentIndex",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Index into objects"
+                    },
+                    {
+                        "name": "partyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of related Party object"
+                    },
+                    {
+                        "name": "typeID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of Type"
+                    },
+                    {
+                        "name": "Payload",
+                        "description": "Request Body",
+                        "required": true,
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "Name": {
+                                    "type": "string"
+                                },
+                                "Description": {
+                                    "type": "string"
+                                },
+                                "ExpiryDate": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited",
+                "summary": "Update Document"
+            },
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "documentIndex",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Index into objects"
+                    },
+                    {
+                        "name": "partyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of related Party object"
+                    },
+                    {
+                        "name": "typeID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "summary": "Delete an Document",
+                "x-auth-type": "Application & Application User",
+                "x-throttling-tier": "Unlimited"
+            }
+        }
+    },
+    "info": {
+        "title": "Documents",
+        "version": "1.0.0",
+        "description": "Document database access API"
+    },
+    "definitions": {
+        "Type": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "ID of Type",
+                    "format": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Type Name",
+                    "format": "string"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of Type",
+                    "format": "string"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "description": "Error Code"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    }
+}

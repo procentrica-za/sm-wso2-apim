@@ -1,0 +1,515 @@
+{
+   "swagger": "2.0",
+   "paths": {
+      "/addresses/types": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/Type"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Address Types"
+         }
+      },
+      "/addresses/{partyID}": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/AddressResponse"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               }
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Party Addresses"
+         }
+      },
+      "/addresses/{partyID}/{typeID}": {
+         "get": {
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/AddressResponse"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "produces": [
+               "application/json"
+            ],
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "List all Party Addresses of Type"
+         },
+         "post": {
+            "parameters": [
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": true,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/AddressRequest"
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/AddressResponse"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "Save new Address"
+         }
+      },
+      "/addresses/{partyID}/{typeID}/{addressIndex}/": {
+         "get": {
+            "parameters": [
+               {
+                  "name": "addressIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Success Response",
+                  "schema": {
+                     "$ref": "#/definitions/AddressResponse"
+                  }
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "View an Address",
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         },
+         "put": {
+            "parameters": [
+               {
+                  "name": "addressIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               },
+               {
+                  "name": "Payload",
+                  "description": "Request Body",
+                  "required": false,
+                  "in": "body",
+                  "schema": {
+                     "$ref": "#/definitions/AddressResponse"
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "Record Updated"
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited",
+            "summary": "Update Address"
+         },
+         "delete": {
+            "parameters": [
+               {
+                  "name": "addressIndex",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "Index into objects"
+               },
+               {
+                  "name": "partyID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of related Party object"
+               },
+               {
+                  "name": "typeID",
+                  "in": "path",
+                  "required": true,
+                  "type": "string",
+                  "description": "ID of Type"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Record Deleted"
+               },
+               "400": {
+                  "description": "Invalid Request Data",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "204": {
+                  "description": "No Record Found",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               },
+               "500": {
+                  "description": "Internal Server Error",
+                  "schema": {
+                     "$ref": "#/definitions/Error"
+                  }
+               }
+            },
+            "summary": "Delete an Address",
+            "x-auth-type": "Application & Application User",
+            "x-throttling-tier": "Unlimited"
+         }
+      }
+   },
+   "info": {
+      "title": "Addresses",
+      "version": "1.0.0",
+      "description": "Address database access API"
+   },
+   "definitions": {
+      "Type": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "ID of Type",
+               "format": "string"
+            },
+            "name": {
+               "type": "string",
+               "description": "Type Name",
+               "format": "string"
+            },
+            "description": {
+               "type": "string",
+               "description": "Description of Type",
+               "format": "string"
+            }
+         }
+      },
+      "AddressRequest": {
+         "type": "object",
+         "properties": {
+            "name": {
+               "type": "string",
+               "description": "Address Name",
+               "format": "string"
+            },
+            "line1": {
+               "type": "string",
+               "description": "Address Line 1",
+               "format": "string"
+            },
+            "line2": {
+               "type": "string",
+               "description": "Address Line 2",
+               "format": "string"
+            },
+            "city": {
+               "type": "string",
+               "description": "Address City",
+               "format": "string"
+            },
+            "postal_code": {
+               "type": "string",
+               "description": "Address Postal Code",
+               "format": "string"
+            },
+            "province": {
+               "type": "string",
+               "description": "Address Province",
+               "format": "string"
+            },
+            "country": {
+               "type": "string",
+               "description": "Address Country",
+               "format": "string"
+            }
+         }
+      },
+      "AddressResponse": {
+         "type": "object",
+         "properties": {
+            "id": {
+               "type": "string",
+               "description": "Address Detail Identification",
+               "format": "string"
+            },
+            "name": {
+               "type": "string",
+               "description": "Address Name",
+               "format": "string"
+            },
+            "created_at": {
+               "type": "string",
+               "description": "Record Create Time",
+               "format": "date-time"
+            },
+            "updated_at": {
+               "type": "string",
+               "description": "Record Update Time",
+               "format": "date-time"
+            },
+            "line1": {
+               "type": "string",
+               "description": "Address Line 1",
+               "format": "string"
+            },
+            "line2": {
+               "type": "string",
+               "description": "Address Line 2",
+               "format": "string"
+            },
+            "city": {
+               "type": "string",
+               "description": "Address City",
+               "format": "string"
+            },
+            "postal_code": {
+               "type": "string",
+               "description": "Address Postal Code",
+               "format": "string"
+            },
+            "province": {
+               "type": "string",
+               "description": "Address Province",
+               "format": "string"
+            },
+            "country": {
+               "type": "string",
+               "description": "Address Country",
+               "format": "string"
+            },
+            "party_id": {
+               "type": "string",
+               "description": "Party Linked To Address",
+               "format": "string"
+            },
+            "address_type_id": {
+               "type": "string",
+               "description": "Reference To The Type Of Address",
+               "format": "string"
+            }
+         }
+      },
+      "Error": {
+         "type": "object",
+         "properties": {
+            "code": {
+               "type": "integer",
+               "description": "Error Code"
+            },
+            "message": {
+               "type": "string",
+               "description": "Error Message"
+            }
+         }
+      }
+   }
+}
