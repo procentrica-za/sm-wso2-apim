@@ -1,0 +1,1 @@
+keytool -import -alias wso2carbon1 -file wso2carbon.cer -keystore client-truststore.jks -storepass wso2carbon
