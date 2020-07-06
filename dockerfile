@@ -9,5 +9,4 @@ COPY resources/axis2.xml /home/wso2carbon/wso2am-2.6.0/repository/conf/axis2/
 COPY resources/site.json /home/wso2carbon/wso2am-2.6.0/repository/deployment/server/jaggeryapps/store/site/conf/
 COPY resources/carbon.xml /home/wso2carbon/wso2am-2.6.0/repository/conf/
 COPY resources/jndi.properties /home/wso2carbon/wso2am-2.6.0/repository/conf/
-COPY resources/web.xml /home/wso2carbon/wso2am-2.6.0/repository/conf/tomcat/carbon/WEB-INF/
 ENV POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres
