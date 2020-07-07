@@ -10,5 +10,6 @@ COPY resources/site.json /home/wso2carbon/wso2am-2.6.0/repository/deployment/ser
 COPY resources/carbon.xml /home/wso2carbon/wso2am-2.6.0/repository/conf/
 COPY resources/jndi.properties /home/wso2carbon/wso2am-2.6.0/repository/conf/
 COPY resources/security/wso2carbon.cer /home/wso2carbon/wso2am-2.6.0/repository/conf/security/
+COPY resources/security/client-truststore.jks /home/wso2carbon/wso2am-2.6.0/repository/conf/security/
 COPY resources/scripts/* /docker-entrypoint-initdb.d/
 ENV POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres
