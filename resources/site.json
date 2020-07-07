@@ -68,5 +68,5 @@
     //"regContext":"" // Use only if different path is used for registry
   },
   "mapExistingAuthApps" : false,
-  "whiteListedHostNames" : ["localhost", "35.242.221.95", "35.244.227.67"]
+  "whiteListedHostNames" : ["localhost", "35.242.221.95", "35.244.227.67", "40.121.183.52"]
 }
