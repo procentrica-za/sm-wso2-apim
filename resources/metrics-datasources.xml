@@ -30,7 +30,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                     <configuration>
-                        <url>jdbc:postgresql://sm-postgres-service:5432/wso2metrics_db</url>
+                        <url>jdbc:postgresql://localhost:5432/wso2metrics_db</url>
                         <username>postgres</username>
                         <password>admin</password>
                         <driverClassName>org.postgresql.Driver</driverClassName>

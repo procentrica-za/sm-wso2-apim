@@ -14,7 +14,7 @@
         </jndiConfig>
         <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:postgresql://sm-postgres-service:5432/wso2carbon_db</url>
+                    <url>jdbc:postgresql://localhost:5432/wso2carbon_db</url>
                     <username>postgres</username>
                     <password>postgres</password>
                     <driverClassName>org.postgresql.Driver</driverClassName>
@@ -37,7 +37,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                <url>jdbc:postgresql://sm-postgres-service:5432/wso2am_db</url>
+                <url>jdbc:postgresql://localhost:5432/wso2am_db</url>
                 <username>postgres</username>
                 <password>postgres</password>
                 <driverClassName>org.postgresql.Driver</driverClassName>
@@ -82,7 +82,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                     <configuration>
-                        <url>jdbc:postgresql://sm-postgres-service:5432/wso2mb_db</url>
+                        <url>jdbc:postgresql://localhost:5432/wso2mb_db</url>
                         <username>postgres</username>
                         <password>postgres</password>
                         <driverClassName>org.postgresql.Driver</driverClassName>
@@ -163,7 +163,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:postgresql://sm-postgres-service:5432/gregdb</url>
+                    <url>jdbc:postgresql://localhost:5432/gregdb</url>
                     <username>postgres</username>
                     <password>postgres</password>
                     <driverClassName>org.postgresql.Driver</driverClassName>
@@ -183,7 +183,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:postgresql://sm-postgres-service:5432/gregdb</url>
+                    <url>jdbc:postgresql://localhost:5432/gregdb</url>
                     <username>postgres</username>
                     <password>postgres</password>
                     <driverClassName>org.postgresql.Driver</driverClassName>
